@@ -1,0 +1,66 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      @if (isHandset$ | async) {
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      }
+      <span>random-stuff</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <!-- <img
+      class=""
+      src="https://img.freepik.com/darmowe-zdjecie/zblizenie-na-kotka-otoczonego-kwiatami_23-2150782325.jpg"
+      alt="cat"
+    /> -->
+    <swiper-container class="card position-absolute top-50 start-50 translate-middle" style="width: 40%;">
+      <swiper-slide >
+        <img src="./assets/images/kotki1.jpg" alt="kotki1" class="w-75 p-3 card-img-top "/>
+        <div class="card-body">
+          <h5 class="card-title">Małe kotki 🐈</h5>
+          <p class="card-text">Małe jest piękne</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="./assets/images/kotki2.jpg" alt="kotki1" class="w-75 p-3 card-img-top"/>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Małe jest piękne, czyli zalety bycia niskim...</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="./assets/images/kotki3.jpg" alt="kotki1" class="w-75 p-3 card-img-top"/>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Małe jest piękne, czyli zalety bycia słodkim... !</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+    
+    <app-container></app-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>
